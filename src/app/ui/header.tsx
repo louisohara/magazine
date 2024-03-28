@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <nav
       id="header"
-      className="md:mt-[90vh] flex justify-between border-white sticky top-0 left-[1%] z-10 border-b-2 w-[98%] mix-blend-difference"
+      className="px-2 backdrop-blur-[8px] md:mt-[90vh] flex justify-between border-white sticky top-0 left-[1%] z-10 border-b-2 w-[98%] mix-blend-difference"
     >
       <ul className="flex justify-between md:justify-around w-2/4 md:w-1/3 ml-auto list-none ">
         {[
@@ -50,13 +50,13 @@ export default function Header() {
       </ul>
       <p
         id="logo"
-        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-0 text-[24vw] md:text-[20vw] z-20 py-0 my-0 text-white hover:text-orange-500 cursor-pointer"
+        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-2 text-[24vw] md:text-[20vw] z-20 py-0 my-0 text-orange-500 hover:text-white cursor-pointer"
       >
         <Link href="/">ARCCA</Link>
       </p>
       <p
         id="logo"
-        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-2 md:left-4 text-[24vw] md:text-[20vw] z-10 mix-blend-color-dodge py-0 my-0"
+        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-4 md:left-6 text-[24vw] md:text-[20vw] z-10 mix-blend-color-dodge py-0 my-0"
       >
         ARCCA
       </p>
