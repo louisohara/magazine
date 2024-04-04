@@ -20,7 +20,7 @@ const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral">
-      <h2 className="text-center px-4 bg-orange-500 my-2 border-2 border-black absolute top-0 left-[50%] translate-x-[-50%] font-black uppercase text-[2rem]">
+      <h2 className="text-center px-4 bg-orange-500 my-4 border-2 border-black absolute top-0 left-[50%] translate-x-[-50%] font-black uppercase text-[2rem]">
         Gallery
       </h2>
       <div className="sticky top-6 flex h-screen items-center overflow-hidden">

@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import AnimatedLetters from "./animatedLetters";
 
 export default function Header() {
   const pathname = usePathname();
@@ -26,9 +28,18 @@ export default function Header() {
   return (
     <nav
       id="header"
-      className="px-2 backdrop-blur-[8px] md:mt-[90vh] flex justify-between border-white sticky top-0 left-[1%] z-10 border-b-2 w-[98%] mix-blend-difference"
+      className="px-2 backdrop-blur-[8px] md:mt-[90vh] flex justify-between border-white sticky top-0 left-[1%] z-20 border-b-2 w-[98%] mix-blend-difference"
     >
-      <ul className="flex justify-between md:justify-around w-2/4 md:w-1/3 ml-auto list-none ">
+      <motion.ul
+        initial={{ opacity: 0, x: 180 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          ease: "easeInOut",
+          duration: 1,
+          delay: 1,
+        }}
+        className="flex justify-between md:justify-around w-2/4 md:w-1/3 ml-auto list-none "
+      >
         {[
           ["ABOUT", "/about", "1"],
           ["SHOP", "/shop", "2"],
@@ -47,18 +58,20 @@ export default function Header() {
             {title}
           </Link>
         ))}
-      </ul>
+      </motion.ul>
       <p
         id="logo"
-        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-2 text-[24vw] md:text-[20vw] z-20 py-0 my-0 text-orange-500 hover:text-white cursor-pointer"
+        className="absolute bottom-1 lg:-bottom-4 sm:-bottom-1 md:-bottom-3 xl:-bottom-4 2xl:-bottom-6 font-semi-bold left-2 md:left-3 text-[26vw] sm:text-[24vw]  md:text-[22vw] lg:text-[20vw] xl:text-[17vw] 2xl:text-[14vw] z-20 py-0 my-0 text-orange-500 hover:text-white cursor-pointer"
       >
-        <Link href="/">ARCCA</Link>
+        <Link href="/">
+          <AnimatedLetters words="ARCCA" yParam="100" xParam="100" />
+        </Link>
       </p>
       <p
         id="logo"
-        className="absolute bottom-1 md:-bottom-5 font-semi-bold left-4 md:left-6 text-[24vw] md:text-[20vw] z-10 mix-blend-color-dodge py-0 my-0"
+        className="absolute bottom-1 lg:-bottom-4 sm:-bottom-1  md:-bottom-3 xl:-bottom-4 2xl:-bottom-6 font-semi-bold left-4 md:left-6 text-[26vw] sm:text-[24vw]  md:text-[22vw] lg:text-[20vw] xl:text-[17vw] 2xl:text-[14vw] z-10 mix-blend-color-dodge py-0 my-0"
       >
-        ARCCA
+        <AnimatedLetters words="ARCCA" yParam="100" xParam="100" />
       </p>
     </nav>
   );

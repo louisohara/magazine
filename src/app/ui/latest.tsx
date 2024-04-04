@@ -3,7 +3,7 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 export default function Latest() {
   useLayoutEffect(() => {
@@ -36,7 +36,7 @@ export default function Latest() {
   }, []);
 
   return (
-    <div className="flex justify-between w-full h-[90vh] bg-white snap-center snap-always">
+    <div className="flex justify-between w-full h-[90vh] bg-white ">
       <div className="w-1/2 relative h-full flex flex-col justify-center p-4 md:p-8  overflow-clip">
         <h2
           id="text"

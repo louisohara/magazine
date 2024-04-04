@@ -1,8 +1,33 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useInView } from "react-intersection-observer";
+import { SetStateAction } from "react";
+import clsx from "clsx";
+import { motion } from "framer-motion";
+import AnimatedLetters from "./animatedLetters";
 
-export default function Headline() {
+interface HeadlineProps {
+  setIsIntersecting: React.Dispatch<SetStateAction<boolean>>;
+  isIntersecting: boolean;
+}
+
+const textProp = "This is the magazine headline sentence.";
+
+export default function Headline({
+  setIsIntersecting,
+  isIntersecting,
+}: HeadlineProps) {
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      setIsIntersecting(true);
+    } else {
+      setIsIntersecting(false);
+    }
+  }, [inView]);
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -19,13 +44,14 @@ export default function Headline() {
       end: "bottom top",
     });
   }, []);
+
   return (
-    <>
+    <div className={clsx("snap-always snap-center")} ref={ref}>
       <div
         id="headline"
-        className="text-white w-[85%] ml-auto text-end font-semi-bold p-4 text-[8vw] md:text-[5.5vw] h-[31.25vh] md:h-full"
+        className="text-white w-[85%] ml-auto text-end font-semi-bold p-4 text-[8vw] md:text-[5.5vw] h-[calc(40vh-58.5px)] md:h-full"
       >
-        This is the magazine headline sentence.
+        <AnimatedLetters words={textProp} yParam="-100" xParam="100" />
       </div>
       <div className="w-full flex items-center justify-start overflow-hidden">
         <svg
@@ -38,7 +64,7 @@ export default function Headline() {
             id="textcircle"
             fill="none"
             stroke="#f97316"
-            stroke-width="5"
+            strokeWidth="5"
             data-duration="5"
             d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
           ></path>
@@ -53,6 +79,6 @@ export default function Headline() {
           </text>
         </svg>
       </div>
-    </>
+    </div>
   );
 }
