@@ -51,7 +51,12 @@ export default function Headline({
         id="headline"
         className="text-white w-[85%] ml-auto text-end font-semi-bold p-4 text-[8vw] md:text-[5.5vw] h-[calc(40vh-58.5px)] md:h-full"
       >
-        <AnimatedLetters words={textProp} yParam="-100" xParam="100" />
+        <AnimatedLetters
+          words={textProp}
+          yParam="-100"
+          xParam="100"
+          inView={inView}
+        />
       </div>
       <div className="w-full flex items-center justify-start overflow-hidden">
         <svg
