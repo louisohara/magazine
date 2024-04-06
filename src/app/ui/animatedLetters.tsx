@@ -18,9 +18,10 @@ export default function AnimatedLetters({
     y: 100,
   };
   return (
-    <span className="w-full">
+    <span className="w-full leading-[0]">
       {words.split("").map((letter: string, i: number) => (
         <motion.span
+          key={i}
           //   style={{
           //     color: "white",
           //     transform: inView ? "none" : "translateX(-200px)",
@@ -32,7 +33,7 @@ export default function AnimatedLetters({
           transition={{
             ease: "easeInOut",
             duration: 0.75,
-            delay: 0.035 * i,
+            delay: 0.05 * i,
           }}
         >
           {letter}

@@ -76,7 +76,7 @@ export default function Latest() {
           src="/latest.png"
           alt="Magazine cover"
           fill={true}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
         ></Image>
         <p className="absolute flex items-center justify-center h-full top-0 right-0 text-[12.25vw] font-semibold text-end p-4 md:p-8 leading-none mix-blend-color-dodge break-all text-balance text-white ">
           BUILD TOGETHER

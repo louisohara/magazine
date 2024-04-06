@@ -44,10 +44,11 @@ export default function Home() {
     //   </div>
     //   {/* </main> */}
     // </section>
-    <section className="snap-y">
+    <section className="snap-y" id="page">
       <Hero isIntersecting={isIntersecting} />
-      <main className="bg-black relative z-10 overflow-x-clip">
-        <Header />
+      <Header />
+      <main className="relative z-10 overflow-x-clip">
+        {/* <Header /> */}
         <Headline
           setIsIntersecting={setIsIntersecting}
           isIntersecting={isIntersecting}
