@@ -31,13 +31,6 @@ export default function Headline({
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // ScrollTrigger.create({
-    //   animation: gsap.to("#svg", {
-    //     duration: 2,
-    //     left: "-60px",
-    //     rotation: -720,
-    //     ease: "power4.inOut",
-    //   }),
     const timeline = gsap.timeline({
       scrollTrigger: {
         scrub: 1,
@@ -47,11 +40,7 @@ export default function Headline({
       },
     });
     timeline
-      // .to("#sentence", {
-      //   display: "block",
-      // })
       .to("#svg", {
-        // duration: 2,
         transition: "1s",
         left: "-60px",
         rotation: -720,
@@ -62,33 +51,16 @@ export default function Headline({
         color: "initial",
       })
       .to("#header", {
-        // duration: 0,
         mixBlendMode: "difference",
-        transition: "backdropFilter 0.25s both",
         backdropFilter: "blur(8px)",
       });
   }, []);
 
   return (
-    <div
-      // initial={{ opacity: 0, y: "100%" }}
-      // animate={{ opacity: 1, y: 0 }}
-      // transition={{ ease: "easeInOut", duration: 1 }}
-      className={clsx("snap-always snap-center")}
-      id="headline"
-      ref={ref}
-    >
-      <div className="fade-in-bottom bg-black h-[40vh]">
-        <div
-          id="sentence"
-          className="text-white w-[85%] ml-auto text-end font-semi-bold p-4 pt-8 text-[8vw] md:text-[5.5vw] h-[33.3vh] md:h-full"
-        >
-          <AnimatedLetters
-            words={textProp}
-            yParam="-100"
-            xParam="100"
-            inView={inView}
-          />
+    <div className={clsx("snap-always snap-center")} id="headline" ref={ref}>
+      <div className="fade-in-bottom bg-black h-[35vh] md:h-full">
+        <div className="text-white w-[85%] ml-auto line-through text-end font-semi-bold p-4 pt-12 text-[8vw] md:text-[6.5vw]  md:h-full md:pt-[12vh]">
+          <AnimatedLetters words={textProp} yParam="-100" xParam="100" />
         </div>
       </div>
       <div className="w-full flex items-center justify-start overflow-hidden">

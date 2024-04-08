@@ -23,13 +23,13 @@ const Hero = ({ isIntersecting }: HeroProps) => {
       <video
         id="video"
         ref={videoRef}
-        data-src="https://assets.yesstud.io/cartelandco2022/video/cartelandco2022_41529_loop.mp4"
-        // loop
-        // autoPlay
-        // playsInline
-        src="https://assets.yesstud.io/cartelandco2022/video/cartelandco2022_41529_loop.mp4"
+        data-src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/GTYSdDW/film-reel-footer_bjzom4wwb__58c7cb3a3d221b36f4d114089e2a5cb5__P360.mp4"
+        loop
+        autoPlay
+        playsInline
+        src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/GTYSdDW/film-reel-footer_bjzom4wwb__58c7cb3a3d221b36f4d114089e2a5cb5__P360.mp4"
         muted
-        className="w-[100vw] h-[60vh] md:h-[80vh] overscroll-none object-cover z-0 fade-in-top"
+        className="w-[100vw] h-[60vh] md:h-[85vh] overscroll-none object-cover z-0 fade-in-top"
       ></video>
     </figure>
   );

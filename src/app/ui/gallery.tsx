@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 const Gallery = () => {
   return (
@@ -11,6 +12,7 @@ const Gallery = () => {
 };
 
 const HorizontalScrollCarousel = () => {
+  const { ref, inView } = useInView();
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -20,10 +22,29 @@ const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral">
-      <h2 className="text-center px-4 bg-orange-500 my-4 border-2 border-black absolute top-0 left-[50%] translate-x-[-50%] font-black uppercase text-[2rem]">
-        Gallery
-      </h2>
-      <div className="sticky top-6 flex h-screen items-center overflow-hidden">
+      {inView && (
+        <motion.div
+          initial={{ opacity: 0, transform: "scaleY(50%)" }}
+          animate={{ opacity: 1, transform: "translate(0% , 0%)" }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.5,
+          }}
+          className="absolute top-6 left-[calc(50%)] translate-x-[-50%]   h-fit w-0"
+        >
+          <h2 className="text-center inline-block  px-4 text-orange-500 absolute top-0 left-[calc(50%)] translate-x-[-50%] font-black uppercase text-[4rem] ">
+            Gallery
+          </h2>
+          <h2 className="text-center inline-block px-4 text-white  absolute top-0 left-[calc(50%-0.25rem)] translate-x-[-50%] font-black uppercase text-[4rem] mix-blend-difference">
+            Gallery
+          </h2>
+        </motion.div>
+      )}
+
+      <div
+        className="sticky top-6 flex h-[90vh] items-center overflow-hidden"
+        ref={ref}
+      >
         <motion.div style={{ x }} className="flex items-center gap-4">
           {cards.map((card, i) => {
             return <Card card={card} key={card.id} i={i} />;
@@ -44,7 +65,7 @@ const Card = ({ card, i }: { card: CardType; i: number }) => {
         {
           "w-[350px] h-[350px] bg-orange-500 self-end": i % 2 === 1,
         },
-        { "w-[475px] h-[475px] bg-red-500": i % 3 === 0 }
+        { "w-[475px] h-[475px] bg-white": i % 3 === 0 }
       )}
     >
       <div
@@ -55,10 +76,9 @@ const Card = ({ card, i }: { card: CardType; i: number }) => {
         }}
         className={clsx(
           "absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110",
-
-          { "bg-right-top": i % 2 === 1 },
-          { "bg-right-bottom": i % 3 === 0 },
-          { "bg-bottom": i === 3 }
+          { "bg-bottom": i === 3 },
+          { "bg-right-top": i % 2 === 1 && i !== 3 },
+          { "bg-right-bottom": i % 3 === 0 }
         )}
       ></div>
       <div

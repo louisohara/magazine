@@ -19,36 +19,10 @@ export default function Home() {
   }, []);
 
   return (
-    // <section className="h-[100vh] w-full snap-mandatory snap-y overflow-y-scroll overflow-x-clip">
-    //   <Header />
-    //   <div className="snap-center relative snap-normal w-[100vw] h-[90vh] bg-black border-2 border-green overflow-x-clip">
-    //     <Hero />
-
-    //     {/* </div> */}
-    //     <div className="bg-black relative z-20 ">
-    //       {/* <div className="h-[100vh] w-full snap-mandatory snap-y overflow-x-clip overflow-y-scroll"> */}
-
-    //       {/* <Header /> */}
-
-    //       {/* <div className="bg-black relative z-10 snap-center snap-normal h-[40vh]"> */}
-    //       {/* <Header /> */}
-    //       <Headline />
-    //     </div>
-    //   </div>
-    //   <div className="bg-black snap-end snap-normal h-[90vh] relative z-10 border-red-500 border-2">
-    //     <Latest />
-    //   </div>
-    //   {/* </div> */}
-    //   <div className="snap-center snap-always ">
-    //     <Gallery />
-    //   </div>
-    //   {/* </main> */}
-    // </section>
     <section className="snap-y" id="page">
       <Hero isIntersecting={isIntersecting} />
       <Header />
       <main className="relative z-10 overflow-x-clip">
-        {/* <Header /> */}
         <Headline
           setIsIntersecting={setIsIntersecting}
           isIntersecting={isIntersecting}
