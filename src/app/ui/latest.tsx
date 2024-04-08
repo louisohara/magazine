@@ -3,7 +3,7 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 export default function Latest() {
   useLayoutEffect(() => {
@@ -13,7 +13,7 @@ export default function Latest() {
       scrollTrigger: {
         trigger: "#headline",
         scrub: true,
-        markers: true,
+
         start: "bottom bottom",
         end: "bottom top",
       },
@@ -25,10 +25,10 @@ export default function Latest() {
         opacity: `1`,
         left: "0",
         ease: `power4.inOut`,
-        duration: "0.5",
+        duration: "1.25",
       })
       .to("#image", {
-        duration: 0.5,
+        duration: 1.25,
         right: 0,
         opacity: 1,
         ease: "power4.inOut",
@@ -36,8 +36,8 @@ export default function Latest() {
   }, []);
 
   return (
-    <div className="flex justify-between w-full h-[90vh] bg-white snap-center snap-always">
-      <div className="w-1/2 relative h-full flex flex-col justify-center p-8  overflow-clip">
+    <div className="flex justify-between w-full h-[90vh] bg-white ">
+      <div className="w-1/2 relative h-full flex flex-col justify-center p-4 md:p-8  overflow-clip">
         <h2
           id="text"
           className="my-4 text-[5vw] relative opacity-0 -left-[100%] font-bold"
@@ -73,12 +73,12 @@ export default function Latest() {
       </div>
       <div className="w-1/2 relative h-full -right-[100%] opacity-0" id="image">
         <Image
-          src="/fleur.webp"
+          src="/latest.png"
           alt="Magazine cover"
           fill={true}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
         ></Image>
-        <p className="absolute flex items-center justify-center h-full top-0 right-0 text-[12.25vw] font-semibold text-end p-8 leading-none mix-blend-color-dodge break-all text-balance text-white ">
+        <p className="absolute flex items-center justify-center h-full top-0 right-0 text-[12.25vw] font-semibold text-end p-4 md:p-8 leading-none mix-blend-color-dodge break-all text-balance text-white ">
           BUILD TOGETHER
         </p>
       </div>

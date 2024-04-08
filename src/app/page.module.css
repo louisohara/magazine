@@ -1,3 +1,23 @@
+.arrow {
+  height: 22px;
+  width: 60px;
+  opacity: 0.5;
+  transition: 250ms all ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.arrow:hover {
+  opacity: 1;
+}
+.arrow svgPath {
+  transition: 250ms all ease;
+  height: 100%;
+}
+.arrow:hover svg path {
+  transform: translateX(20px);
+}
+
 /* .main {
   display: flex;
   flex-direction: column;
