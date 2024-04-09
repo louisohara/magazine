@@ -46,12 +46,7 @@ export default function Headline({
         rotation: -720,
         ease: "power4.inOut",
       })
-      .to("#nav", {
-        duration: 0,
-        color: "initial",
-      })
       .to("#header", {
-        mixBlendMode: "difference",
         backdropFilter: "blur(8px)",
       });
   }, []);
@@ -65,7 +60,7 @@ export default function Headline({
       </div>
       <div className="w-full flex items-center justify-start overflow-hidden">
         <svg
-          className="absolute w-[150px] h-[150px] overflow-visible origin-center left-[200%]"
+          className="absolute w-[150px] h-[150px] overflow-visible origin-center left-[200%] z-10"
           viewBox="0 0 500 500"
           data-duration="5"
           id="svg"

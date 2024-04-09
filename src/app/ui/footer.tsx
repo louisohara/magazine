@@ -10,7 +10,7 @@ export default function Footer() {
         >
           <label
             htmlFor="email"
-            className="w-full md:w-fit p-0 m-0 text-balance text-[9vw] md:text-[2rem] md:text-nowrap align-baseline line-through"
+            className="w-full p-0 m-0 text-balance text-[9vw] md:text-[2rem] md:text-nowrap md:w-fit align-baseline line-through"
           >
             SIGN UP TO OUR NEWSLETTER
           </label>
@@ -24,7 +24,7 @@ export default function Footer() {
         </form>
         <button
           type="submit"
-          className="text-nowrap font-bold text-white relative border-2 border-solid w-fit flex justify-around items-center hover:bg-white hover:text-orange-500 py-2 px-8 gap-4"
+          className="text-nowrap font-bold text-white relative border-2 border-solid w-fit flex justify-around items-center line hover:bg-white hover:text-orange-500 py-2 px-8 gap-4"
         >
           Sign up
           {/* <svg id="right" className={styles.arrow}>

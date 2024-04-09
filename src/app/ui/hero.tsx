@@ -27,9 +27,10 @@ const Hero = ({ isIntersecting }: HeroProps) => {
         loop
         autoPlay
         playsInline
-        src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/GTYSdDW/film-reel-footer_bjzom4wwb__58c7cb3a3d221b36f4d114089e2a5cb5__P360.mp4"
         muted
-        className="w-[100vw] h-[60vh] md:h-[85vh] overscroll-none object-cover z-0 fade-in-top"
+        controls={false}
+        src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/GTYSdDW/film-reel-footer_bjzom4wwb__58c7cb3a3d221b36f4d114089e2a5cb5__P360.mp4"
+        className="w-[100vw] h-[60vh] md:h-[90vh] overscroll-none object-cover relative z-0 fade-in-top"
       ></video>
     </figure>
   );

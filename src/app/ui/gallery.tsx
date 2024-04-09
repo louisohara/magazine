@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 const Gallery = () => {
   return (
-    <div className="bg-neutral-100 relative z-[5]">
+    <div className="bg-neutral-100 relative z-[5]" id="gallery">
       <HorizontalScrollCarousel />
     </div>
   );
@@ -30,7 +30,7 @@ const HorizontalScrollCarousel = () => {
             ease: "easeInOut",
             duration: 0.5,
           }}
-          className="absolute top-6 left-[calc(50%)] translate-x-[-50%]   h-fit w-0"
+          className="absolute top-0 left-[calc(50%)] translate-x-[-50%]   h-fit w-0"
         >
           <h2 className="text-center inline-block  px-4 text-orange-500 absolute top-0 left-[calc(50%)] translate-x-[-50%] font-black uppercase text-[4rem] ">
             Gallery
@@ -42,7 +42,7 @@ const HorizontalScrollCarousel = () => {
       )}
 
       <div
-        className="sticky top-6 flex h-[90vh] items-center overflow-hidden"
+        className="sticky top-6 flex h-[100vh] items-center overflow-hidden"
         ref={ref}
       >
         <motion.div style={{ x }} className="flex items-center gap-4">
@@ -60,12 +60,18 @@ const Card = ({ card, i }: { card: CardType; i: number }) => {
     <div
       key={card.id}
       className={clsx(
-        "group relative overflow-hidden",
-        { "h-[400px] w-[400px] bg-yellow-300": i % 2 === 0 },
+        "group relative z-10 overflow-hidden",
         {
-          "w-[350px] h-[350px] bg-orange-500 self-end": i % 2 === 1,
+          "h-[300px] w-[300px] md:h-[400px] md:w-[400px] bg-yellow-300":
+            i % 2 === 0,
         },
-        { "w-[475px] h-[475px] bg-white": i % 3 === 0 }
+        {
+          "h-[250px] w-[250px] md:w-[350px] md:h-[350px] bg-orange-500 self-end":
+            i % 2 === 1,
+        },
+        {
+          "h-[350px] w-[350px] md:w-[450px] md:h-[450px] bg-white": i % 3 === 0,
+        }
       )}
     >
       <div
@@ -75,7 +81,7 @@ const Card = ({ card, i }: { card: CardType; i: number }) => {
           backgroundRepeat: "no-repeat",
         }}
         className={clsx(
-          "absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110",
+          "absolute inset-0 z-10 transition-transform duration-300 group-hover:scale-110",
           { "bg-bottom": i === 3 },
           { "bg-right-top": i % 2 === 1 && i !== 3 },
           { "bg-right-bottom": i % 3 === 0 }
@@ -84,18 +90,18 @@ const Card = ({ card, i }: { card: CardType; i: number }) => {
       <div
         className={clsx(
           "absolute inset-0 z-10 grid place-content-left mix-blend-difference",
-          { "flex items-center justify-end w-[127.5%]": i === 2 }
+          { "flex items-center justify-end w-[125%]": i === 2 }
         )}
       >
         <p
           className={clsx(
-            "bg-gradient-to-br p-8 text-6xl font-black text-white uppercase text-wh backdrop-blur-lg",
+            "bg-gradient-to-br p-4 md:p-8 text-5xl md:text-6xl font-black text-white uppercase relative z-[15] mix-blend-difference",
             {
               "-rotate-90 whitespace-nowrap tracking-widest":
                 i === 0 || i === 5,
             },
             {
-              "rotate-90 whitespace-nowrap tracking-widest ": i === 2,
+              "rotate-90 whitespace-nowrap tracking-widest": i === 2,
             },
             {
               "mt-auto": i === 1 || i === 4,

@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="snap-y" id="page">
+    <section className="snap-y overflow-x-clip" id="page">
       <Hero isIntersecting={isIntersecting} />
       <Header />
       <main className="relative z-10 overflow-x-clip">

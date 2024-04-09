@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${dmSans.className} antialiased`}>
-        {/* <Header /> */}
         <main>{children}</main>
         <Footer />
       </body>
