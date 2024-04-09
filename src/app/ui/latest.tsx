@@ -1,9 +1,9 @@
 import Image from "next/image";
-import styles from "../page.module.css";
+
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function Latest() {
   useLayoutEffect(() => {
@@ -33,10 +33,24 @@ export default function Latest() {
         opacity: 1,
         ease: "power4.inOut",
       });
+
+    const anim = gsap.to("#nav", {
+      color: "initial",
+      // filter: "invert(1)",
+      // animationDelay: "s",
+    });
+    ScrollTrigger.create({
+      trigger: "#latest",
+      start: "bottom top",
+      endTrigger: "gallery",
+      end: "top top",
+      scrub: 1,
+      animation: anim,
+    });
   }, []);
 
   return (
-    <div className="flex justify-between w-full h-[90vh] bg-white ">
+    <div className="flex justify-between w-full h-[90vh] bg-white " id="latest">
       <div className="w-1/2 relative h-full flex flex-col justify-center p-4 md:p-8  overflow-clip">
         <h2
           id="text"
@@ -78,7 +92,7 @@ export default function Latest() {
           fill={true}
           style={{ objectFit: "cover" }}
         ></Image>
-        <p className="absolute flex items-center justify-center h-full top-0 right-0 text-[12.25vw] font-semibold text-end p-4 md:p-8 leading-none mix-blend-color-dodge break-all text-balance text-white ">
+        <p className="absolute flex items-center justify-center h-full top-0 right-0 text-[12.25vw] font-semibold text-end p-4 md:p-8 leading-none mix-blend-color-dodge break-all text-balance text-white w-[90%] ">
           BUILD TOGETHER
         </p>
       </div>
